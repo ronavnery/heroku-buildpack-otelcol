@@ -2,7 +2,10 @@
 
 export PATH="$PATH:$HOME/bin"
 
-APP_OTELCOL="/app/otelcol"
+# Explicitly check if APP_OTELCOL is set and assign a default if not
+if [ -z "${APP_OTELCOL}" ]; then
+  APP_OTELCOL="/app/otelcol"
+fi
 
 PRERUN_SCRIPT="$APP_OTELCOL/prerun.sh"
 if [ -e "$PRERUN_SCRIPT" ]; then
